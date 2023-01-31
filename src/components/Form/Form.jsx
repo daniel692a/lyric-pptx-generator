@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import './index.css';
+import Sample from '../Sample/Sample';
 
-const Form = () => {
+const Form = (props) => {
+    const description = `El cordero que sufrió
+Traicionado fue
+El peso de nuestra maldad
+Fue puesto sobre Él\n
+En silencio soportó
+Dolor y humillación
+Obediente al Padre fue
+La cruz por mí cargó`;
 
-    const description = 'VERSO 1\n\nVERSO 2';
+    let content = useRef(null);
+
+    const handleOnSubmit = (event) => {
+        event.preventDefault();
+        alert(content.current.value);
+    };
 
     return (
         <>
-            <form>
+            <form onSubmit={handleOnSubmit} target="hiddenFrame">
                 <label>
-                    Letra:
-                    <textarea value={description}></textarea>
+                    Letra (sigue el formato):<br/>
+                    <textarea ref={content
+                    } placeholder={description} rows="25" cols="50"></textarea>
                 </label>
                 <input type="submit" value="Generar archivo PPTX" />
             </form>

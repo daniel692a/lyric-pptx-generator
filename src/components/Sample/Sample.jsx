@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Sample = () => {
+const Sample = ({text}) => {
   return (
-    <div>Sample</div>
+    <div>{text}</div>
   )
 }
 

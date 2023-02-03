@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import './index.css';
-import Sample from '../Sample/Sample';
 
 const Form = (props) => {
     const description = `El cordero que sufrió
@@ -12,11 +11,26 @@ Dolor y humillación
 Obediente al Padre fue
 La cruz por mí cargó`;
 
+    const paragraphs = [];
+
+    const splitParagraph = (lyrics) => {
+        let i;
+        let begin = 0;
+        for(i=0; i<lyrics.length-1; i++){
+            if(lyrics[i]==="\n" && lyrics[i+1]==="\n"){
+                paragraphs.push(lyrics.slice(begin, i));
+                begin = i+2;
+                i++;
+            }
+        }
+        paragraphs.push(lyrics.slice(begin, i));
+    };
+
     let content = useRef(null);
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-        alert(content.current.value);
+        splitParagraph(content.current.value);
     };
 
     return (

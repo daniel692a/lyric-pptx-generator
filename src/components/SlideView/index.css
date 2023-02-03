@@ -1,0 +1,8 @@
+.slider-viewer{
+    position: relative;
+    width: 65vw;
+    height: 90vh;
+    overflow: scroll;
+    background-color: darkgrey;
+    padding: 1rem;
+}

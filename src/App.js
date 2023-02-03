@@ -1,6 +1,6 @@
 import './App.css';
 import Form from './components/Form/Form';
-import Sample from './components/Sample/Sample';
+import SlideView from './components/SlideView/SlideView';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <h1>Generador de PPTX para letras</h1>
       <div className='container'>
         <Form></Form>
-        <Sample></Sample>
+        <SlideView/>
       </div>
     </>
   );
